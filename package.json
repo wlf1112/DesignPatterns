@@ -1,0 +1,20 @@
+{
+  "name": "design-patterns",
+  "version": "1.0.0",
+  "description": "1. [设计模式简介](https://github.com/wlf1112/DesignPatterns/issues/1)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wlf1112/DesignPatterns.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wlf1112/DesignPatterns/issues"
+  },
+  "homepage": "https://github.com/wlf1112/DesignPatterns#readme"
+}
