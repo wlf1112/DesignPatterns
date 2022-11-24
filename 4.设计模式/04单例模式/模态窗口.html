@@ -9,21 +9,43 @@
 </head>
 
 <body>
+    <button id="show-button">显示模态窗口</button>
+    <button id="hide-button">隐藏模态窗口</button>
     <script>
         class Login {
             constructor() {
                 this.element = document.createElement('div');
                 this.element.innerHTML = (
                     `
-                     用户名 <input name="username"/>
-                     密码 <input name="password"/>
-                     <input type="sumit" value="登录"/>
+                        用户名 <input name="username"/>
+                        密码 <input name="password"/>
+                        <input type="sumit" value="登录"/>
                     `
                 );
+                this.element.style.cssText =
+                    `width:100px;height:100px;position:absolute;left:50%;top:50%;margin-top:-50px;margin-left:-50px;display:block;`;
                 document.body.appendChild(this.element);
-                
+            }
+            show() {
+                this.element.style.display = "block";
+            }
+            hide() {
+                this.element.style.display = "none";
+            }
+            static getInstance() {
+                if (!this.instance) {
+                    this.instance = new Login();
+                }
+                return this.instance;
             }
         }
+
+        document.getElementById("show-button").addEventListener("click", function () {
+            Login.getInstance().show();
+        })
+        document.getElementById("hide-button").addEventListener("click", function () {
+            Login.getInstance().hide();
+        })
     </script>
 </body>
 

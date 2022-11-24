@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree</title>
+</head>
+
+<body>
+    <select id="user"></select>
+    <script>
+        // 从服务器获取到数据，显示在select框里
+        let treeData = [{
+                name: '山东',
+                key: "shandong",
+                children: [{
+                    name: '青岛',
+                    key: 'qingdao'
+                }, {
+                    name: '威海',
+                    key: 'weihai'
+                }]
+            },
+            {
+                name: '广东',
+                key: 'guangdong',
+                children: [{
+                    name: '东莞',
+                    key: 'dongguan'
+                }, {
+                    name: '深圳',
+                    key: 'shenzhen'
+                }]
+            }
+        ]
+        // 需要的数据 [山东,青岛,威海,广东,东莞,深圳]
+        let users = document.getElementById('user');
+
+        function flattenAdaptor(treeData, flattenArray) {
+            treeData.forEach(item => {
+                if (item.children) {
+                    flattenAdaptor(item.children, flattenArray);
+                }
+                flattenArray.push({
+                    name: item.name,
+                    key: item.key
+                });
+            })
+            return flattenArray;
+        }
+        let array = [];
+        flattenAdaptor(treeData, array);
+        array.reverse();
+        let options = array.map(item => 
+            `<option value="${item.key}">${item.name}</option>`
+        ).join('');
+        users.innerHTML = options;
+    </script>
+</body>
+
+</html>
