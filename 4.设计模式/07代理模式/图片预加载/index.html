@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="background">
+        <button data-src="/images/bg1.jpg">背景一</button>
+        <button data-src="/images/bg2.jpg">背景二</button>
+    </div>
+    <div class="bg-container">
+        <img src="/images/bg1.jpg" alt="" id="bg-image">
+    </div>
+    <script>
+        let container = document.querySelector('#background');
+
+        class BackgroundImage {
+            constructor() {
+                this.bgImage = document.querySelector("#bg-image");
+            }
+            setSrc(src) {
+                this.bgImage.src = src;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+</head>
+
+<body>
+    <form action="">
+        用户名 <input type="text" name="username" id="username" />
+        密码 <input type="text" name="password" id="password" />
+        <button id="submit-btn">注册</button>
+    </form>
+    <script>
+        Function.prototype.before = function (beforeFn) {
+            let _this = this;
+            return function () {
+                let ret = beforeFn.apply(this, arguments);
+                if (ret) {
+                    _this.apply(this, arguments);
+                }
+            }
+        }
+
+        function submit() {
+            console.log('提交表单');
+        }
+        submit = submit.before(function () {
+            let username = document.getElementById('username');
+            if (username.length < 6) {
+                return alert('用户名不能少于6位');
+            }
+            return true;
+        });
+        submit = submit.before(function () {
+            let username = document.getElementById('username').value;
+            if (!username) {
+                return alert('用户名不能为空');
+            }
+            return true;
+        });
+        document.getElementById('submit-btn').addEventListener('click', submit);
+    </script>
+</body>
+
+</html>

@@ -29,12 +29,10 @@ namespace property_namespace {
     @classPropertyDecorator
     static classProperty: string; //类的静态属性
     @instanceMethodDecorator
-    instanceMethod() {
-      //实例的方法
+    instanceMethod() {// 实例的方法
     }
     @classMethodDecorator
-    static classMethod() {
-      // 类的静态方法
+    static classMethod() { // 类的静态方法
     }
   }
 }
